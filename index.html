@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Awing</title>
+    <link rel="stylesheet" href="./styleB.css" />
+    <link rel="stylesheet" href="./asset/Style/captive-1.0.min.css" />
+</head>
+
+<body>
+    <div class="page-wrap" id="page-wrap">
+        <div class="page" id="awing2">
+            <div class="page3">
+                <div class="header-ctitle">
+                    <p class="header-cslogan">adsfghmjnbvcxz</p>
+                    <img src="./screenshot_1651717664.png" class="header-clogo">
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="question" id="q-scroll">
+                    <ul class="list-question">
+
+                    </ul>
+                </div>
+
+                <div class="end">
+                    <div id="loadMore"><button class="more"><img
+                                src="./asset/image/arrow-down-sign-to-navigate.svg"></button></div>
+
+                    <button type="button" class="login btnCheck" id="btnCheck" onclick="goToHomePage()">
+                        <p class="lh-15">GỬI CÂU TRẢ LỜI VÀ KẾT NỐI WI-FI</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="page2 d-none">
+                <div id="wrong" class="thongBao">
+                    <p class="fw-b lh-15 mgb-50 text-tb" style="width:65%;margin:auto;padding: 20px 0px;">Vui lòng trả lời đầy đủ các câu hỏi để tiếp tục!</p>
+                    <button type="button" class=" login" id="btn-close2" onclick="comeBack()" style="margin-bottom: 20px;">
+                        <p class="lh-15 ">QUAY LẠI</p>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./asset/js/jquery-3.5.1.slim.min.js"></script>
+<script src="./main.js"></script>
+<script>
+    var textAddHtml = '';
+
+    for (let i = 0; i < textFields3.length; i++) {
+        textAddHtml += '<li class="mt-75"> <p class="fw-b lh-15" style="text-align: justify;">' + textFields3[i].ask + '</p> <div class="question2 mt-75"> <form class="q-form">';
+        if (textFields3[i].type === 'checkbox') {
+
+            var tlCheckbox = textFields3[i].answer;
+            var myArrayCheckbox = tlCheckbox.split("\n");
+            for (let j = 0; j < myArrayCheckbox.length; j++) {
+                if (myArrayCheckbox[j].includes('lc')) {
+                    var myArrayCheckbox2 = myArrayCheckbox[j].split("lc");
+                    console.log(myArrayCheckbox2);
+
+                    textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="checkbox" id="cauhoi' + i + j + '"' + 'name="checkbox' + i + '"' + ' value="' + j + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:red">' + myArrayCheckbox2[1] + '</p></label></div>' +
+                        '<div id="khac' + i + j + '"' + 'style="margin-left:30px;">' +
+                        '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="diffi" required></textarea> </div>';
+
+                } else {
+
+                    textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="checkbox" id="cauhoi' + i + j + '"' + 'name="checkbox' + i + '"' + ' value="' + j + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:blue">' + myArrayCheckbox[j] + '</p></label></div>';
+
+                }
+            }
+            textAddHtml += '</li>';
+
+        } else {
+            var tlRadio = textFields3[i].answer;
+            var myArrayRadio = tlRadio.split("\n");
+            for (let k = 0; k < myArrayRadio.length; k++) {
+
+                if (myArrayRadio[k].includes('lc')) {
+                    var myArrayCheckbox3 = myArrayRadio[k].split("lc");
+
+                    textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="radio" id="cauhoi' + i + k + '"' + 'name="radio' + i + '"' + ' value="' + k + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + k + '" class="textA"> <p style="color:red">' + myArrayCheckbox3[1] + '</p></label></div>' +
+                        '<div id="khac' + i + k + '"' + 'style="margin-left:30px;">' +
+                        '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="diffi" required></textarea> </div>';
+
+                } else {
+
+                    textAddHtml += '<div class="ask d1-flex   mb-1r "> <input type="radio" id="cauhoi' + i + k + '"' + 'name="radio' + i + '"' + ' value="' + k + '"' + ' class="mt-3px answer"> <label for="cauhoi' + i + k + '" class="textA"> <p style="color:green">' + myArrayRadio[k] + '</p></label></div>';
+                }
+
+            }
+            textAddHtml += '</li>';
+            console.log(textFields3[i]);
+        }
+    }
+    // textAddHtml += "</ul>";
+    console.log(textAddHtml);
+    $("#q-scroll .list-question").html(textAddHtml);
+</script>
+
+</html>
