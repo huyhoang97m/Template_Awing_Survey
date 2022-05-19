@@ -23,28 +23,11 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    height: 15%;
+    height: 100%;
     width: 100%;
     background-image: url(../image/surveybg.png);
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.header-ctitle {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 525px;
-    height: 100%;
-    margin: auto;
-}
-
-.header-cslogan {
-    max-width: 55%;
-}
-
-.header-clogo {
-    max-width: 35%;
 }
 
 @font-face {
@@ -281,7 +264,7 @@
 }
 
 .text-area {
-    width: 90%;
+    width: 100%;
     height: 100px;
     background: #fff;
     padding: 10px;
@@ -303,8 +286,7 @@ input[type=checkbox] {
     margin-bottom: 0px!important;
 }
 
-.page div label p,
-.list-question label p {
+.page div label p {
     margin-top: 0px!important;
 }
 
@@ -437,9 +419,6 @@ textarea {
         padding-right: 15px;
         padding-left: 15px;
     }
-    .header-ctitle {
-        width: 85%;
-    }
     .page3 {
         background-size: contain;
     }
@@ -537,10 +516,6 @@ textarea {
         overflow-y: scroll;
         padding-right: 20px;
         padding-left: 20px;
-    }
-    .header-ctitle {
-        width: 85%;
-        ;
     }
     .page,
     .page .wrap {
@@ -671,9 +646,6 @@ textarea {
         overflow-y: scroll;
         padding-right: 20px;
         padding-left: 20px;
-    }
-    .header-ctitle {
-        width: 90%;
     }
     .qu-1 {
         margin-bottom: 10px!important;
