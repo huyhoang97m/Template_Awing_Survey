@@ -10,82 +10,108 @@ const textFields3 = [
 // var textFields3 = { ten_truong_3 };
 
 var textAddHtml = '';
-
+var arrayAnswer = [];
 for (let i = 0; i < textFields3.length; i++) {
-    textAddHtml += '<li class="mt-75"> <p class="fw-b lh-15" style="text-align: justify;">' + textFields3[i].ask + '</p> <div class="question2 mt-75"> <form class="q-form">';
-    if (textFields3[i].type === 'checkbox') {
+    textAddHtml += '<li class="mt-75"> <p class="fw-b lh-15" style="text-align: justify;">' + textFields3[i].ask + '</p> <div class="question2 mt-75"> <form class="q-form class-awing" id="awing-survey-' + i + '">';
+    indexAnswerOrther = -1;
+    var tlRadio = textFields3[i].answer;
+    var myArrayRadio = tlRadio.split("\n");
+    for (let j = 0; j < myArrayRadio.length; j++) {
+        if (myArrayRadio[j].includes('lc')) {
+            var myArrayCheckbox3 = myArrayRadio[j].split("lc");
+            indexAnswerOrther = j;
+            textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="' + textFields3[i].type + '" class="traloi' + i + ' khac' + i + '" id="cauhoi' + i + j + '"' + 'name="question' + i + '"' + ' value="' + getAlphabet(j) + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:red">' + myArrayCheckbox3[1] + '</p></label></div>' +
+                '<div id="khac' + i + j + '"' + 'style="margin-left:30px;">' +
+                '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="khac' + i + '" required></textarea> </div>';
 
-        var tlCheckbox = textFields3[i].answer;
-        var myArrayCheckbox = tlCheckbox.split("\n");
-        for (let j = 0; j < myArrayCheckbox.length; j++) {
-            if (myArrayCheckbox[j].includes('lc')) {
-                var myArrayCheckbox2 = myArrayCheckbox[j].split("lc");
-                console.log(myArrayCheckbox2);
+        } else {
 
-                textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="checkbox" id="cauhoi' + i + j + '"' + 'name="checkbox' + i + '"' + ' value="' + j + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:red">' + myArrayCheckbox2[1] + '</p></label></div>' +
-                    '<div id="khac' + i + j + '"' + 'style="margin-left:30px;">' +
-                    '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="diffi" required></textarea> </div>';
-
-            } else {
-
-                textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="checkbox" id="cauhoi' + i + j + '"' + 'name="checkbox' + i + '"' + ' value="' + j + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:blue">' + myArrayCheckbox[j] + '</p></label></div>';
-
-            }
+            textAddHtml += '<div class="ask d1-flex   mb-1r "> <input type="' + textFields3[i].type + '" class="traloi' + i + '" id="cauhoi' + i + j + '"' + 'name="question' + i + '"' + ' value="' + getAlphabet(j) + '"' + ' class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:green">' + myArrayRadio[j] + '</p></label></div>';
         }
-        textAddHtml += '</li>';
 
-    } else {
-        var tlRadio = textFields3[i].answer;
-        var myArrayRadio = tlRadio.split("\n");
-        for (let k = 0; k < myArrayRadio.length; k++) {
-
-            if (myArrayRadio[k].includes('lc')) {
-                var myArrayCheckbox3 = myArrayRadio[k].split("lc");
-
-                textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="radio" id="cauhoi' + i + k + '"' + 'name="radio' + i + '"' + ' value="' + k + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + k + '" class="textA"> <p style="color:red">' + myArrayCheckbox3[1] + '</p></label></div>' +
-                    '<div id="khac' + i + k + '"' + 'style="margin-left:30px;">' +
-                    '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="diffi" required></textarea> </div>';
-
-            } else {
-
-                textAddHtml += '<div class="ask d1-flex   mb-1r "> <input type="radio" id="cauhoi' + i + k + '"' + 'name="radio' + i + '"' + ' value="' + k + '"' + ' class="mt-3px answer"> <label for="cauhoi' + i + k + '" class="textA"> <p style="color:green">' + myArrayRadio[k] + '</p></label></div>';
-            }
-
-        }
-        textAddHtml += '</li>';
-        console.log(textFields3[i]);
     }
+    arrayAnswer.push({
+        id: i,
+        indexAnswerOrther: indexAnswerOrther,
+        type: textFields3[i].type,
+        valid: false,
+        answer: []
+    })
+    textAddHtml += '</form> </div> </li>';
 }
-console.log(textAddHtml);
+// console.log(textAddHtml);
 $("#q-scroll .list-question").html(textAddHtml);
 
-var newtextFields3 = textFields3.map(changeField);
+// var newtextFields3 = textFields3.map(changeField);
 
-function changeField(textFields3) {
-    return {
-        type: textFields3.type,
-        cauhoi: textFields3.ask,
-        traloi: textFields3.answer.split("\n"),
-    };
-};
+// function changeField(textFields3) {
+//     return {
+//         type: textFields3.type,
+//         cauhoi: textFields3.ask,
+//         traloi: textFields3.answer.split("\n"),
+//     };
+// };
 
 
-console.log(newtextFields3);
+// console.log(arrayAnswer);
 
 function goToHomePage() {
-    for (let h = 0; h < textFields3.length; h++) {
-        var test = 'input[name="cauhoi' + h + '"]';
-        console.log(test);
-        if ($(test).is(':checked')) {
-            $('p').attr("text-transform", "uppercase!important");
-        } else {
-            $('p').attr("text-transform", "capitalize!important");
-        }
-    }
-    var valuecc = [];
+    // var valuecc = [];
 
-    $('input:checked').each(function() {
-        valuecc.push($(this).val());
+    // $('.q-form').each(function(index) {
+    //     // console.log($(this));
+    //     console.log(index);
+    //     // valuecc.push($(this).val());
+    // });
+    // console.log(valuecc);
+
+    arrayAnswer = getAnswer(arrayAnswer, ".class-awing");
+    console.log(arrayAnswer);
+
+    // Validation: Tất cả valid trong arrayAnswer = true. => post dữ liệu về
+    // Ngược lại hiện thông báo
+}
+
+function getAnswer(arrayAnswer, elementClass) {
+    $(elementClass).each(function(index) {
+        var inputName = '.traloi' + index + ':checked';
+        var newAnswer = $(inputName).length;
+        // if (newAnswer > 0) {
+        //     arrayAnswer[index].value = newAnswer;
+        //     arrayAnswer[index].valid = true;
+        //     var question = []
+        //     $("input[name=question" + index + "]:checked").each(function() {
+        //         question.push($(this).val());
+        //     });
+        //     arrayAnswer[index].answer = question;
+        // }
+        if (newAnswer > 0) {
+            arrayAnswer[index].value = newAnswer;
+
+            let valid = false;
+            var question = []
+
+            $("input[name=question" + index + "]:checked").each(function() {
+                console.log($(this))
+                question.push($(this).val());
+            });
+            arrayAnswer[index].answer = question;
+
+            let inputNameDiff = '.khac' + index + ':checked';
+            var newAnswerKhac = $(inputNameDiff).length;
+            var dien = $('#khac' + index).val();
+
+            if (arrayAnswer[index].indexAnswerOrther >= 0 && newAnswerKhac > 0 && dien.trim()) {
+                valid = true;
+                var questionF = $(inputNameDiff).val() + "-" + dien;
+                question[arrayAnswer[index].indexAnswerOrther] = questionF;
+            }
+            arrayAnswer[index].valid = valid;
+        }
     });
-    console.log(valuecc);
+    return arrayAnswer;
+}
+
+function getAlphabet(index) {
+    return (index + 10).toString(36).toUpperCase();
 }
