@@ -47,6 +47,7 @@ for (let i = 0; i < textFields3.length; i++) {
                 '<div id="div-khac' + i + j + '"' + 'style="margin-left:30px;" >' +
                 '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="khac' + i + j + '" required></textarea> </div>';
         } else {
+
             textAddHtml += '<div class="ask d1-flex   mb-1r "> <input type="' + textFields3[i].type + '" class="traloi' + i + '" id="cauhoi' + i + j + '"' + 'name="question' + i + '"' + ' value="' + getAlphabet(j) + '"' + ' class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:green">' + myArrayRadio[j] + '</p></label></div>';
         }
     }
@@ -59,12 +60,7 @@ for (let i = 0; i < textFields3.length; i++) {
         answer: []
     })
 }
-// console.log(textAddHtml);
 $("#q-scroll .list-question").html(textAddHtml);
-
-
-
-// console.log(arrayAnswer);
 
 function goToHomePage() {
     var newArrayAnswer = getAnswer(arrayAnswer, ".class-awing");
@@ -108,11 +104,8 @@ function goToHomePage() {
 // }
 
 function getAnswer(arrayAnswer, elementClass) {
-    var newArrayAnswer = arrayAnswer.map((x) => {
-        x.valid = false;
-        x.answer = [];
-        return x;
-    })
+    var newArrayAnswer = arrayAnswer.map((x) => { x.valid = false;
+        x.answer = []; return x; })
     $(elementClass).each(function(index) {
         var inputName = '.traloi' + index + ':checked';
         var newAnswer = $(inputName).length;
