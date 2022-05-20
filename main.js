@@ -104,8 +104,11 @@ function goToHomePage() {
 // }
 
 function getAnswer(arrayAnswer, elementClass) {
-    var newArrayAnswer = arrayAnswer.map((x) => { x.valid = false;
-        x.answer = []; return x; })
+    var newArrayAnswer = arrayAnswer.map((x) => {
+        x.valid = false;
+        x.answer = [];
+        return x;
+    })
     $(elementClass).each(function(index) {
         var inputName = '.traloi' + index + ':checked';
         var newAnswer = $(inputName).length;
