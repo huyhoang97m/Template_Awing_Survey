@@ -1,3 +1,5 @@
+let stepView = 1;
+
 const textFields3 = [
     { type: 'checkbox', ask: 'Cau hoi 1', answer: 'cau tra lpo' },
     { type: 'radio', ask: 'Cau hoi 2', answer: 'dafc \n between sdasdsasda \n lchtml-worpress' },
@@ -12,7 +14,7 @@ const textFields3 = [
 var textAddHtml = '';
 var arrayAnswer = [];
 for (let i = 0; i < textFields3.length; i++) {
-    textAddHtml += '<li class="mt-75"> <p class="fw-b lh-15" style="text-align: justify;">' + textFields3[i].ask + '</p> <div class="question2 mt-75"> <form class="q-form class-awing" id="awing-survey-' + i + '">';
+    textAddHtml += '<li class="mt-75"> <p class="fw-b lh-15" style="text-align: justify;">' + textFields3[i].ask + '</p> <div class="question2 mt-75"> <form class="q-form class-awing' + stepView + '" id="awing-survey-' + i + '">';
     indexAnswerOrther = -1;
     var tlRadio = textFields3[i].answer;
     var myArrayRadio = tlRadio.split("\n");
@@ -20,9 +22,9 @@ for (let i = 0; i < textFields3.length; i++) {
         if (myArrayRadio[j].includes('lc')) {
             var myArrayCheckbox3 = myArrayRadio[j].split("lc");
             indexAnswerOrther = j;
-            textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="' + textFields3[i].type + '" class="traloi' + i + ' khac' + i + '" id="cauhoi' + i + j + '"' + 'name="question' + i + '"' + ' value="' + getAlphabet(j) + '"' + 'class="mt-3px answer"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:red">' + myArrayCheckbox3[1] + '</p></label></div>' +
-                '<div id="khac' + i + j + '"' + 'style="margin-left:30px;">' +
-                '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA" id="khac' + i + '" required></textarea> </div>';
+            textAddHtml += '<div class="ask d1-flex mb-1r "> <input type="' + textFields3[i].type + '" class="traloi' + i + ' khac' + i + '" id="cauhoi' + i + j + '"' + 'name="question' + i + '"' + ' value="' + getAlphabet(j) + '"' + 'class="mt-3px answer" onclick="showHideTextarea()"> <label for="cauhoi' + i + j + '" class="textA"> <p style="color:red">' + myArrayCheckbox3[1] + '</p></label></div>' +
+                '<div id="khac' + i + j + '"' + 'style="margin-left:30px;" class="">' +
+                '<textarea placeholder="Vui lòng điền thêm thông tin tại đây" class="text-area textA other-text" id="khac' + i + '" required></textarea> </div>';
 
         } else {
 
@@ -65,7 +67,7 @@ function goToHomePage() {
     // });
     // console.log(valuecc);
 
-    arrayAnswer = getAnswer(arrayAnswer, ".class-awing");
+    arrayAnswer = getAnswer(arrayAnswer, ".class-awing" + stepView);
     console.log(arrayAnswer);
 
     // Validation: Tất cả valid trong arrayAnswer = true. => post dữ liệu về
@@ -92,7 +94,6 @@ function getAnswer(arrayAnswer, elementClass) {
             var question = []
 
             $("input[name=question" + index + "]:checked").each(function() {
-                console.log($(this))
                 question.push($(this).val());
             });
             arrayAnswer[index].answer = question;
@@ -101,10 +102,14 @@ function getAnswer(arrayAnswer, elementClass) {
             var newAnswerKhac = $(inputNameDiff).length;
             var dien = $('#khac' + index).val();
 
-            if (arrayAnswer[index].indexAnswerOrther >= 0 && newAnswerKhac > 0 && dien.trim()) {
+            if (newAnswerKhac > 0) {
+                if (dien.trim()) {
+                    valid = true;
+                    var questionF = $(inputNameDiff).val() + "-" + dien;
+                    question[arrayAnswer[index].indexAnswerOrther] = questionF;
+                }
+            } else {
                 valid = true;
-                var questionF = $(inputNameDiff).val() + "-" + dien;
-                question[arrayAnswer[index].indexAnswerOrther] = questionF;
             }
             arrayAnswer[index].valid = valid;
         }
@@ -114,4 +119,15 @@ function getAnswer(arrayAnswer, elementClass) {
 
 function getAlphabet(index) {
     return (index + 10).toString(36).toUpperCase();
+}
+
+function showHideTextarea() {
+    for (let i = 0; i < textFields3.length; i++) {
+        if (textFields3[i].type = 'checkbox') {
+            console.log(textFields3[i].type);
+            $("#khac" + i).toggle();
+        } else {
+            $("#khac" + i).hide();
+        }
+    }
 }
