@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.16.4",
+        "jest": "^28.1.2",
+        "jest-environment-jsdom": "^28.1.3",
+        "jest-jquery-matchers": "^2.1.1"
+    },
+    "dependencies": {
+        "unittest2": "^0.0.1"
+    }
+}
