@@ -42,7 +42,6 @@ afterEach(() => {
 
 test("Kết quả câu hỏi không bắt buộc", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test1 = generateSurvey(arrayQuestions1, stepView, answerKey, answerOrtherKey);
     let newNode1 = document.createElement('div');
     newNode1.innerHTML = test1.html;
@@ -53,7 +52,6 @@ test("Kết quả câu hỏi không bắt buộc", () => {
 
 test("Kết quả loại câu hỏi bắt buộc", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test2 = generateSurvey(arrayQuestions2, stepView, answerKey, answerOrtherKey);
     let newNode2 = document.createElement('div');
     newNode2.innerHTML = test2.html;
@@ -64,7 +62,6 @@ test("Kết quả loại câu hỏi bắt buộc", () => {
 
 test("Kết quả loại 1 đáp án", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test3 = generateSurvey(arrayQuestions1, stepView, answerKey, answerOrtherKey);
     let newNode1 = document.createElement('div');
     newNode1.innerHTML = test3.html;
@@ -75,7 +72,6 @@ test("Kết quả loại 1 đáp án", () => {
 
 test("Kết quả loại Chọn nhiều đáp án", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test4 = generateSurvey(arrayQuestions2, stepView, answerKey, answerOrtherKey);
     let newNode2 = document.createElement('div');
     newNode2.innerHTML = test4.html;
@@ -86,7 +82,6 @@ test("Kết quả loại Chọn nhiều đáp án", () => {
 
 test("Kết quả có một đáp án để chọn", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test5 = generateSurvey(arrayQuestions3, stepView, answerKey, answerOrtherKey);
     let newNode1 = document.createElement('div');
     newNode1.innerHTML = test5.html;
@@ -98,7 +93,6 @@ test("Kết quả có một đáp án để chọn", () => {
 test("Kết quả có nhiều đáp án để chọn", () => {
     jest.clearAllTimers();
     jest.clearAllMocks();
-    let mockElement;
     let test6 = generateSurvey(arrayQuestions4, stepView, answerKey, answerOrtherKey);
     document.body.innerHTML = "";
     let newNode2 = document.createElement('div');
@@ -111,7 +105,6 @@ test("Kết quả có nhiều đáp án để chọn", () => {
 
 test("Kết quả không có kết quả điền thêm thông tin", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test7 = generateSurvey(arrayQuestions3, stepView, answerKey, answerOrtherKey);
     let newNode1 = document.createElement('div');
     newNode1.innerHTML = test7.html;
@@ -122,7 +115,6 @@ test("Kết quả không có kết quả điền thêm thông tin", () => {
 
 test("Kết quả có 1 hoặc nhiều đáp án có kết quả điền thêm thông tin", () => {
     jest.clearAllTimers();
-    let mockElement;
     let test8 = generateSurvey(arrayQuestions5, stepView, answerKey, answerOrtherKey);
     let newNode2 = document.createElement('div');
     newNode2.innerHTML = test8.html;
