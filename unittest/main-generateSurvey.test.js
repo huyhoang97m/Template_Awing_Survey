@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { generateSurvey } = require('./main_v1.0');
+const { generateSurvey } = require('../main_v1.0');
 
 beforeEach(() => {
     jest.restoreAllMocks();

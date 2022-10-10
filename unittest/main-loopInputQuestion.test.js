@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { loopInputQuestion } = require('./main_v1.0');
+const { loopInputQuestion } = require('../main_v1.0');
 
 beforeEach(() => {
     jest.restoreAllMocks();

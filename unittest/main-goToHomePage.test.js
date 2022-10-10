@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { goToHomePage, getAnswer, generateSurvey } = require('./main_v1.0');
+const { goToHomePage, getAnswer, generateSurvey } = require('../main_v1.0');
 
 afterEach(() => {
     jest.clearAllMocks();

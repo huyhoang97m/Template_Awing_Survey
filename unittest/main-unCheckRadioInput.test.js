@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { unCheckRadioInput } = require('./main_v1.0');
+const { unCheckRadioInput } = require('../main_v1.0');
 
 afterEach(() => {
     jest.clearAllMocks();

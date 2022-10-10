@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { loopElementClass, loopInputQuestion } = require('./main_v1.0');
+const { loopElementClass, loopInputQuestion } = require('../main_v1.0');
 
 afterEach(() => {
     jest.clearAllMocks();

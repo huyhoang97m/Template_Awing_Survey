@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-const { handleInputOrther, showHideDescription } = require('./main_v1.0');
+const { handleInputOrther, showHideDescription } = require('../main_v1.0');
 
 let show = jest.fn();
 let val = jest.fn();

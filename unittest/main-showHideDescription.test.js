@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { showHideDescription } = require('./main_v1.0');
+const { showHideDescription } = require('../main_v1.0');
 
 let show = jest.fn();
 let val = jest.fn();
