@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { comeBack } = require('./main_v1.0');
+const { comeBack } = require('../main_v1.0');
 
 let addClass= jest.fn();
 let removeAttr = jest.fn();
