@@ -190,6 +190,7 @@ function comeBack() {
     $("#btnCheck").removeAttr("disabled", 'true');
 };
 
+exports.comeBack = comeBack;
 exports.getAlphabet = getAlphabet;
 exports.generateSurvey = generateSurvey;
 exports.showHideDescription = showHideDescription;
