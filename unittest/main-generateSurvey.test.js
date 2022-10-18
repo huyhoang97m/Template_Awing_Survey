@@ -98,7 +98,6 @@ test("Kết quả có nhiều đáp án để chọn", () => {
     let newNode2 = document.createElement('div');
     newNode2.innerHTML = test6.html;
     document.body.appendChild(newNode2);
-    let testaaray2 = test6.arrayAnswer;
     expect(document.querySelectorAll("#awing-survey-0 input").length).toBe(5);
     expect(document.querySelectorAll("#awing-survey-2 input").length).toBe(4);
 });
@@ -109,7 +108,6 @@ test("Kết quả không có kết quả điền thêm thông tin", () => {
     let newNode1 = document.createElement('div');
     newNode1.innerHTML = test7.html;
     document.body.appendChild(newNode1);
-    let testaaray1 = test7.arrayAnswer;
     expect(document.querySelectorAll("#awing-survey-1 textarea").length).toBe(0);
 });
 
@@ -119,6 +117,5 @@ test("Kết quả có 1 hoặc nhiều đáp án có kết quả điền thêm t
     let newNode2 = document.createElement('div');
     newNode2.innerHTML = test8.html;
     document.body.appendChild(newNode2);
-    let testaaray2 = test8.arrayAnswer;
     expect(document.querySelectorAll("#awing-survey-3 textarea").length).toBe(1);
 });

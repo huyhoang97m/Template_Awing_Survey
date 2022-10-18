@@ -2,14 +2,13 @@
  * @jest-environment jsdom
  */
 
-const { loopElementClass, loopInputQuestion } = require('../main_v1.0');
+const { loopElementClass } = require('../main_v1.0');
 
 afterEach(() => {
     jest.clearAllMocks();
 })
 
 const val = jest.fn();
-const push = jest.fn();
 
 window.$ = window.jQuery = jest.fn(() => ({
     val
@@ -34,10 +33,7 @@ var arrayAnswer2 = [{
 
 test("không trả lời câu trả hỏi bắt buộc", () => {
     let stepView = 1;
-    let el = 0;
     let elementClassLength = 1;
-    let elementClass = ".class-awing" + stepView;
-    let arrayObligatory = 'Bắt buộc';
     window.$ = window.jQuery = jest.fn(() => ({
         val: jest.fn(),
         removeClass: jest.fn(),
@@ -51,10 +47,7 @@ test("không trả lời câu trả hỏi bắt buộc", () => {
 
 test("không trả lời câu trả hỏi không bắt buộc", () => {
     let stepView = 1;
-    let el = 0;
     let elementClassLength = 1;
-    let elementClass = ".class-awing" + stepView;
-    let arrayObligatory = 'Không bắt buộc';
     window.$ = window.jQuery = jest.fn(() => ({
         val: jest.fn(),
         removeClass: jest.fn(),
@@ -68,10 +61,7 @@ test("không trả lời câu trả hỏi không bắt buộc", () => {
 
 test("Có trả lời", () => {
     let stepView = 1;
-    let el = 1;
     let elementClassLength = 1;
-    let elementClass = ".class-awing" + stepView;
-    let arrayObligatory = 'Không bắt buộc';
     window.$ = window.jQuery = jest.fn(() => ({
         val: jest.fn(() => "abc"),
         removeClass: jest.fn(),
