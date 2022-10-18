@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1665028639725" clover="3.2.0">
-  <project timestamp="1665028639725" name="All files">
-    <metrics statements="118" coveredstatements="116" conditionals="39" coveredconditionals="38" methods="16" coveredmethods="15" elements="173" coveredelements="169" complexity="0" loc="118" ncloc="118" packages="1" files="1" classes="1"/>
-    <file name="main_v1.0.js" path="D:\unittest2\main_v1.0.js">
-      <metrics statements="118" coveredstatements="116" conditionals="39" coveredconditionals="38" methods="16" coveredmethods="15"/>
+<coverage generated="1666062899775" clover="3.2.0">
+  <project timestamp="1666062899776" name="All files">
+    <metrics statements="119" coveredstatements="119" conditionals="39" coveredconditionals="38" methods="16" coveredmethods="16" elements="174" coveredelements="173" complexity="0" loc="119" ncloc="119" packages="1" files="1" classes="1"/>
+    <file name="main_v1.0.js" path="D:\unittest\main_v1.0.js">
+      <metrics statements="119" coveredstatements="119" conditionals="39" coveredconditionals="38" methods="16" coveredmethods="16"/>
       <line num="2" count="11" type="stmt"/>
       <line num="3" count="11" type="stmt"/>
       <line num="4" count="11" type="stmt"/>
@@ -66,7 +66,7 @@
       <line num="98" count="3" type="stmt"/>
       <line num="102" count="10" type="stmt"/>
       <line num="106" count="59" type="stmt"/>
-      <line num="108" count="9" type="stmt"/>
+      <line num="108" count="10" type="stmt"/>
       <line num="111" count="2" type="cond" truecount="2" falsecount="0"/>
       <line num="112" count="1" type="stmt"/>
       <line num="113" count="1" type="stmt"/>
@@ -111,17 +111,18 @@
       <line num="178" count="3" type="stmt"/>
       <line num="179" count="3" type="cond" truecount="2" falsecount="0"/>
       <line num="180" count="2" type="stmt"/>
-      <line num="189" count="0" type="stmt"/>
-      <line num="190" count="0" type="stmt"/>
-      <line num="193" count="9" type="stmt"/>
-      <line num="194" count="9" type="stmt"/>
-      <line num="195" count="9" type="stmt"/>
-      <line num="196" count="9" type="stmt"/>
-      <line num="197" count="9" type="stmt"/>
-      <line num="198" count="9" type="stmt"/>
-      <line num="199" count="9" type="stmt"/>
-      <line num="200" count="9" type="stmt"/>
-      <line num="201" count="9" type="stmt"/>
+      <line num="189" count="1" type="stmt"/>
+      <line num="190" count="1" type="stmt"/>
+      <line num="193" count="10" type="stmt"/>
+      <line num="194" count="10" type="stmt"/>
+      <line num="195" count="10" type="stmt"/>
+      <line num="196" count="10" type="stmt"/>
+      <line num="197" count="10" type="stmt"/>
+      <line num="198" count="10" type="stmt"/>
+      <line num="199" count="10" type="stmt"/>
+      <line num="200" count="10" type="stmt"/>
+      <line num="201" count="10" type="stmt"/>
+      <line num="202" count="10" type="stmt"/>
     </file>
   </project>
 </coverage>
