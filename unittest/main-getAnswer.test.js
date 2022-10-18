@@ -2,15 +2,13 @@
  * @jest-environment jsdom
  */
 
-const { getAnswer, loopElementClass, loopInputQuestion } = require('../main_v1.0');
+const { getAnswer } = require('../main_v1.0');
 
 afterEach(() => {
     jest.clearAllMocks();
 })
 
 const val = jest.fn();
-const push = jest.fn();
-const map = jest.fn();
 
 window.$ = window.jQuery = jest.fn(() => ({
     val
