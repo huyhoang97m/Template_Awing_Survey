@@ -8,4 +8,4 @@ B2: Mở file main_v1.0.js comment 2 dòng code
       và bỏ comment các dòng exoports ở cuối file.
 
 B3: Vào terminal rồi gõ code " npm run test".
-B4: Để chạy coverage vào terminal và gõ dòng lệnh " npm test -- --coverage ".
+B4: Để kiểm tra coverage vào terminal và gõ dòng lệnh " npm test -- --coverage ".
